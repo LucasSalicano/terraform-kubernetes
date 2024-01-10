@@ -5,10 +5,11 @@ terraform {
       source = "hashicorp/aws"
       version = "5.31.0"
     }
-    local = {
-      source = "hashicorp/local"
-      version = "2.4.1"
-    }
+  }
+  backend "s3" {
+    bucket = "terraform-state-eks"
+    key    = "terraform.tfstate"
+    region = "us-east-1"
   }
 }
 
